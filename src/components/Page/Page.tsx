@@ -1,37 +1,34 @@
-import React, { FC } from 'react';
 import { Layout } from 'antd';
-import { Route } from 'react-router-dom';
+import React, { FC } from 'react';
 import styled from 'styled-components';
+import Navbar from '../Navbar';
 
 const StyledPage = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   overflow: auto;
+
+  .ant-layout-header {
+    background: none;
+  }
 `;
 
-const { Content } = Layout;
+const { Content, Header } = Layout;
 
 interface PageProps {
-  path: string;
-  exact?: boolean;
   children: any;
 }
 
-const Page: FC<PageProps> = ({ children, path, exact = false }) => {
-  return (
-    <Route
-      path={path}
-      exact={exact}
-      render={() => (
-        <StyledPage>
-          <Layout>
-            <Content>{children}</Content>
-          </Layout>
-        </StyledPage>
-      )}
-    />
-  );
-};
+const Page: FC<PageProps> = ({ children }) => (
+  <StyledPage>
+    <Layout>
+      <Header className="mb-5 p-0">
+        <Navbar />
+      </Header>
+      <Content>{children}</Content>
+    </Layout>
+  </StyledPage>
+);
 
 export default Page;

@@ -6,10 +6,8 @@ export const AlertContext = createContext(undefined);
 
 export const useAlertProvider = () => {
   const [alerts, setAlerts] = useState(null);
-
   const refresh = useCallback(() => {
     Promise.resolve({ title: 'Test data' }).then((data) => {
-      console.log({ data });
       return data;
     }).then(setAlerts);
   }, []);

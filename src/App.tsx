@@ -1,21 +1,19 @@
+import { ApolloProvider } from '@apollo/react-hooks';
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import CreateAlert from './views/CreateAlert';
-import { useAlertProvider, AlertContext } from './hooks';
+import { AlertContext, useAlertProvider } from './hooks';
+import client from './queries/client';
+import './theme.scss';
+import Main from './views/Main';
 
 export const App = () => {
   const alerts = useAlertProvider();
 
   return (
-    <AlertContext.Provider value={alerts}>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/">
-            <CreateAlert />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </AlertContext.Provider>
+    <ApolloProvider client={client}>
+      <AlertContext.Provider value={alerts}>
+        <Main />
+      </AlertContext.Provider>
+    </ApolloProvider>
   );
 };
 

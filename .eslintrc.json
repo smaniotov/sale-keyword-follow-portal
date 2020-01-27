@@ -27,7 +27,12 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-underscore-dangle": 0,
+        "import/no-extraneous-dependencies": 0,
+        "@typescript-eslint/no-unused-vars": 2,
+        "no-unused-vars": 0,
         "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+        "react/prop-types": 0,
         "import/extensions": [
             2,
             "ignorePackages",

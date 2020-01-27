@@ -8,6 +8,8 @@
     "start:dev": "webpack-dev-server --config tools/webpack-dev.config.js",
     "start:qa": "npm test; ENV=qa webpack-dev-server --config tools/webpack-dev.config.js",
     "start:prod": "npm test; ENV=prod webpack-dev-server --config tools/webpack-dev.config.js",
+    "build": "ENV=local webpack --config tools/webpack-dev.config.js",
+    "build:prod": "ENV=prod webpack --config tools/webpack-prod.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
